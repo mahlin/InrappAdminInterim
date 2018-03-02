@@ -1,0 +1,948 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="DB11Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="admDelregister">
+          <Key>
+            <PropertyRef Name="delregisterid" />
+          </Key>
+          <Property Name="delregisterid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="registerid" Type="int" Nullable="false" />
+          <Property Name="delregisternamn" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="beskrivning" Type="nvarchar(max)" />
+          <Property Name="kortnamn" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="inrapporteringsportal" Type="bit" Nullable="false" />
+          <Property Name="slussmapp" Type="nvarchar" MaxLength="100" />
+          <Property Name="skapaddatum" Type="datetime" Nullable="false" />
+          <Property Name="skapadav" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="andraddatum" Type="datetime" Nullable="false" />
+          <Property Name="andradav" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="admFAQ">
+          <Key>
+            <PropertyRef Name="faqid" />
+          </Key>
+          <Property Name="faqid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="registerid" Type="int" />
+          <Property Name="faqkatergoriid" Type="int" />
+          <Property Name="fraga" Type="nvarchar(max)" />
+          <Property Name="svar" Type="nvarchar(max)" />
+          <Property Name="skapaddatum" Type="datetime" Nullable="false" />
+          <Property Name="skapadav" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="andraddatum" Type="datetime" Nullable="false" />
+          <Property Name="andradav" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="admFAQKategori">
+          <Key>
+            <PropertyRef Name="faqkatergoriid" />
+          </Key>
+          <Property Name="faqkatergoriid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="kategori" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="skapaddatum" Type="datetime" Nullable="false" />
+          <Property Name="skapadav" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="andraddatum" Type="datetime" Nullable="false" />
+          <Property Name="andradav" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="admForvantadfil">
+          <Key>
+            <PropertyRef Name="forvantadfilid" />
+          </Key>
+          <Property Name="forvantadfilid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="filkravid" Type="int" Nullable="false" />
+          <Property Name="foreskriftsid" Type="int" />
+          <Property Name="filmask" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="regexp" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="obligatorisk" Type="bit" Nullable="false" />
+          <Property Name="tom" Type="bit" Nullable="false" />
+          <Property Name="skapaddatum" Type="datetime" Nullable="false" />
+          <Property Name="skapadav" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="andraddatum" Type="datetime" Nullable="false" />
+          <Property Name="andradav" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="admForvantadleverans">
+          <Key>
+            <PropertyRef Name="forvantadleveransid" />
+          </Key>
+          <Property Name="forvantadleveransid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="delregisterid" Type="int" Nullable="false" />
+          <Property Name="filkravid" Type="int" Nullable="false" />
+          <Property Name="period" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="uppgiftsstart" Type="date" Nullable="false" />
+          <Property Name="uppgiftsslut" Type="date" Nullable="false" />
+          <Property Name="rapporteringsstart" Type="date" Nullable="false" />
+          <Property Name="rapporteringsslut" Type="date" Nullable="false" />
+          <Property Name="rapporteringsenast" Type="date" Nullable="false" />
+          <Property Name="paminnelse1" Type="date" />
+          <Property Name="paminnelse2" Type="date" />
+          <Property Name="paminnelse3" Type="date" />
+          <Property Name="skapaddatum" Type="datetime" Nullable="false" />
+          <Property Name="skapadav" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="andraddatum" Type="datetime" Nullable="false" />
+          <Property Name="andradav" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="admInformation">
+          <Key>
+            <PropertyRef Name="informationsid" />
+          </Key>
+          <Property Name="informationsid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="informationstyp" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="text" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="skapaddatum" Type="datetime" Nullable="false" />
+          <Property Name="skapadav" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="andraddatum" Type="datetime" Nullable="false" />
+          <Property Name="andradav" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="admKonfiguration">
+          <Key>
+            <PropertyRef Name="konfigurationsid" />
+          </Key>
+          <Property Name="konfigurationsid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="typ" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="varde" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="skapaddatum" Type="datetime" Nullable="false" />
+          <Property Name="skapadav" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="andraddatum" Type="datetime" Nullable="false" />
+          <Property Name="andradav" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="admRegister">
+          <Key>
+            <PropertyRef Name="registerid" />
+          </Key>
+          <Property Name="registerid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="registernamn" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="beskrivning" Type="nvarchar(max)" />
+          <Property Name="kortnamn" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="inrapporteringsportal" Type="bit" Nullable="false" />
+          <Property Name="skapaddatum" Type="datetime" Nullable="false" />
+          <Property Name="skapadav" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="andraddatum" Type="datetime" Nullable="false" />
+          <Property Name="andradav" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="admUppgiftsskyldighet">
+          <Key>
+            <PropertyRef Name="uppgiftsskyldighetid" />
+          </Key>
+          <Property Name="uppgiftsskyldighetid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="organisationsid" Type="int" Nullable="false" />
+          <Property Name="delregisterid" Type="int" Nullable="false" />
+          <Property Name="skyldigfrom" Type="date" Nullable="false" />
+          <Property Name="skyldigtom" Type="date" />
+          <Property Name="rapporterarperenhet" Type="bit" Nullable="false" />
+          <Property Name="skapaddatum" Type="datetime" Nullable="false" />
+          <Property Name="skapadav" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="andraddatum" Type="datetime" Nullable="false" />
+          <Property Name="andradav" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Kontaktperson">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+          <Property Name="PasswordHash" Type="nvarchar(max)" />
+          <Property Name="SecurityStamp" Type="nvarchar(max)" />
+          <Property Name="PhoneNumber" Type="nvarchar(max)" />
+          <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+          <Property Name="LockOutEndDateUtc" Type="datetime" />
+          <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="organisationsid" Type="int" Nullable="false" />
+          <Property Name="namn" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="aktivfrom" Type="date" />
+          <Property Name="aktivtom" Type="date" />
+          <Property Name="status" Type="int" />
+          <Property Name="skapaddatum" Type="datetime" Nullable="false" />
+          <Property Name="skapadav" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="andraddatum" Type="datetime" Nullable="false" />
+          <Property Name="andradav" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Organisation">
+          <Key>
+            <PropertyRef Name="organisationsid" />
+          </Key>
+          <Property Name="organisationsid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="landstingskod" Type="nvarchar" MaxLength="2" />
+          <Property Name="kommunkod" Type="nvarchar" MaxLength="4" />
+          <Property Name="inrapporteringskod" Type="nvarchar" MaxLength="20" />
+          <Property Name="organisationstyp" Type="nvarchar" MaxLength="50" />
+          <Property Name="lanid" Type="int" />
+          <Property Name="organisationsnr" Type="nvarchar" MaxLength="50" />
+          <Property Name="organisationsnamn" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="hemsida" Type="nvarchar" MaxLength="100" />
+          <Property Name="epostadress" Type="nvarchar" MaxLength="100" />
+          <Property Name="telefonnr" Type="nvarchar" MaxLength="100" />
+          <Property Name="adress" Type="nvarchar" MaxLength="100" />
+          <Property Name="postnr" Type="nvarchar" MaxLength="50" />
+          <Property Name="postort" Type="nvarchar" MaxLength="100" />
+          <Property Name="epostdoman" Type="nvarchar" MaxLength="100" />
+          <Property Name="aktivfrom" Type="date" Nullable="false" />
+          <Property Name="aktivtom" Type="date" />
+          <Property Name="skapaddatum" Type="datetime" Nullable="false" />
+          <Property Name="skapadav" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="andraddatum" Type="datetime" Nullable="false" />
+          <Property Name="andradav" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Organisationsenhet">
+          <Key>
+            <PropertyRef Name="organisationsenhetsid" />
+          </Key>
+          <Property Name="organisationsenhetsid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="organisationsid" Type="int" Nullable="false" />
+          <Property Name="enhetsnamn" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="enhetskod" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="aktivfrom" Type="date" Nullable="false" />
+          <Property Name="aktivtom" Type="date" />
+          <Property Name="skapaddatum" Type="datetime" Nullable="false" />
+          <Property Name="skapadav" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="andraddatum" Type="datetime" Nullable="false" />
+          <Property Name="andradav" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_admDelregister_admRegister">
+          <End Role="admRegister" Type="Self.admRegister" Multiplicity="1" />
+          <End Role="admDelregister" Type="Self.admDelregister" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="admRegister">
+              <PropertyRef Name="registerid" />
+            </Principal>
+            <Dependent Role="admDelregister">
+              <PropertyRef Name="registerid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_admFAQ_admFAQKategori">
+          <End Role="admFAQKategori" Type="Self.admFAQKategori" Multiplicity="0..1" />
+          <End Role="admFAQ" Type="Self.admFAQ" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="admFAQKategori">
+              <PropertyRef Name="faqkatergoriid" />
+            </Principal>
+            <Dependent Role="admFAQ">
+              <PropertyRef Name="faqkatergoriid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_admFAQ_admRegister">
+          <End Role="admRegister" Type="Self.admRegister" Multiplicity="0..1" />
+          <End Role="admFAQ" Type="Self.admFAQ" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="admRegister">
+              <PropertyRef Name="registerid" />
+            </Principal>
+            <Dependent Role="admFAQ">
+              <PropertyRef Name="registerid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_admForvantadleverans_admDelregister">
+          <End Role="admDelregister" Type="Self.admDelregister" Multiplicity="1" />
+          <End Role="admForvantadleverans" Type="Self.admForvantadleverans" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="admDelregister">
+              <PropertyRef Name="delregisterid" />
+            </Principal>
+            <Dependent Role="admForvantadleverans">
+              <PropertyRef Name="delregisterid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_admUppgiftsskyldighet_admDelregister">
+          <End Role="admDelregister" Type="Self.admDelregister" Multiplicity="1" />
+          <End Role="admUppgiftsskyldighet" Type="Self.admUppgiftsskyldighet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="admDelregister">
+              <PropertyRef Name="delregisterid" />
+            </Principal>
+            <Dependent Role="admUppgiftsskyldighet">
+              <PropertyRef Name="delregisterid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_admUppgiftsskyldighet_Organisation">
+          <End Role="Organisation" Type="Self.Organisation" Multiplicity="1" />
+          <End Role="admUppgiftsskyldighet" Type="Self.admUppgiftsskyldighet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Organisation">
+              <PropertyRef Name="organisationsid" />
+            </Principal>
+            <Dependent Role="admUppgiftsskyldighet">
+              <PropertyRef Name="organisationsid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Kontaktperson_Organisation">
+          <End Role="Organisation" Type="Self.Organisation" Multiplicity="1" />
+          <End Role="Kontaktperson" Type="Self.Kontaktperson" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Organisation">
+              <PropertyRef Name="organisationsid" />
+            </Principal>
+            <Dependent Role="Kontaktperson">
+              <PropertyRef Name="organisationsid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Organisationsenhet_Organisation">
+          <End Role="Organisation" Type="Self.Organisation" Multiplicity="1" />
+          <End Role="Organisationsenhet" Type="Self.Organisationsenhet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Organisation">
+              <PropertyRef Name="organisationsid" />
+            </Principal>
+            <Dependent Role="Organisationsenhet">
+              <PropertyRef Name="organisationsid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DB11ModelStoreContainer">
+          <EntitySet Name="admDelregister" EntityType="Self.admDelregister" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="admFAQ" EntityType="Self.admFAQ" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="admFAQKategori" EntityType="Self.admFAQKategori" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="admForvantadfil" EntityType="Self.admForvantadfil" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="admForvantadleverans" EntityType="Self.admForvantadleverans" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="admInformation" EntityType="Self.admInformation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="admKonfiguration" EntityType="Self.admKonfiguration" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="admRegister" EntityType="Self.admRegister" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="admUppgiftsskyldighet" EntityType="Self.admUppgiftsskyldighet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Kontaktperson" EntityType="Self.Kontaktperson" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Organisation" EntityType="Self.Organisation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Organisationsenhet" EntityType="Self.Organisationsenhet" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_admDelregister_admRegister" Association="Self.FK_admDelregister_admRegister">
+            <End Role="admRegister" EntitySet="admRegister" />
+            <End Role="admDelregister" EntitySet="admDelregister" />
+          </AssociationSet>
+          <AssociationSet Name="FK_admFAQ_admFAQKategori" Association="Self.FK_admFAQ_admFAQKategori">
+            <End Role="admFAQKategori" EntitySet="admFAQKategori" />
+            <End Role="admFAQ" EntitySet="admFAQ" />
+          </AssociationSet>
+          <AssociationSet Name="FK_admFAQ_admRegister" Association="Self.FK_admFAQ_admRegister">
+            <End Role="admRegister" EntitySet="admRegister" />
+            <End Role="admFAQ" EntitySet="admFAQ" />
+          </AssociationSet>
+          <AssociationSet Name="FK_admForvantadleverans_admDelregister" Association="Self.FK_admForvantadleverans_admDelregister">
+            <End Role="admDelregister" EntitySet="admDelregister" />
+            <End Role="admForvantadleverans" EntitySet="admForvantadleverans" />
+          </AssociationSet>
+          <AssociationSet Name="FK_admUppgiftsskyldighet_admDelregister" Association="Self.FK_admUppgiftsskyldighet_admDelregister">
+            <End Role="admDelregister" EntitySet="admDelregister" />
+            <End Role="admUppgiftsskyldighet" EntitySet="admUppgiftsskyldighet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_admUppgiftsskyldighet_Organisation" Association="Self.FK_admUppgiftsskyldighet_Organisation">
+            <End Role="Organisation" EntitySet="Organisation" />
+            <End Role="admUppgiftsskyldighet" EntitySet="admUppgiftsskyldighet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Kontaktperson_Organisation" Association="Self.FK_Kontaktperson_Organisation">
+            <End Role="Organisation" EntitySet="Organisation" />
+            <End Role="Kontaktperson" EntitySet="Kontaktperson" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Organisationsenhet_Organisation" Association="Self.FK_Organisationsenhet_Organisation">
+            <End Role="Organisation" EntitySet="Organisation" />
+            <End Role="Organisationsenhet" EntitySet="Organisationsenhet" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DB11Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="admDelregister">
+          <Key>
+            <PropertyRef Name="delregisterid" />
+          </Key>
+          <Property Name="delregisterid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="registerid" Type="Int32" Nullable="false" />
+          <Property Name="delregisternamn" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="beskrivning" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="kortnamn" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="inrapporteringsportal" Type="Boolean" Nullable="false" />
+          <Property Name="slussmapp" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="skapaddatum" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="skapadav" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="andraddatum" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="andradav" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="admRegister" Relationship="Self.FK_admDelregister_admRegister" FromRole="admDelregister" ToRole="admRegister" />
+          <NavigationProperty Name="admForvantadleverans" Relationship="Self.FK_admForvantadleverans_admDelregister" FromRole="admDelregister" ToRole="admForvantadleverans" />
+          <NavigationProperty Name="admUppgiftsskyldighets" Relationship="Self.FK_admUppgiftsskyldighet_admDelregister" FromRole="admDelregister" ToRole="admUppgiftsskyldighet" />
+        </EntityType>
+        <EntityType Name="admFAQ">
+          <Key>
+            <PropertyRef Name="faqid" />
+          </Key>
+          <Property Name="faqid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="registerid" Type="Int32" />
+          <Property Name="faqkatergoriid" Type="Int32" />
+          <Property Name="fraga" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="svar" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="skapaddatum" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="skapadav" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="andraddatum" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="andradav" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="admFAQKategori" Relationship="Self.FK_admFAQ_admFAQKategori" FromRole="admFAQ" ToRole="admFAQKategori" />
+          <NavigationProperty Name="admRegister" Relationship="Self.FK_admFAQ_admRegister" FromRole="admFAQ" ToRole="admRegister" />
+        </EntityType>
+        <EntityType Name="admFAQKategori">
+          <Key>
+            <PropertyRef Name="faqkatergoriid" />
+          </Key>
+          <Property Name="faqkatergoriid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="kategori" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="skapaddatum" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="skapadav" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="andraddatum" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="andradav" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="admFAQs" Relationship="Self.FK_admFAQ_admFAQKategori" FromRole="admFAQKategori" ToRole="admFAQ" />
+        </EntityType>
+        <EntityType Name="admForvantadfil">
+          <Key>
+            <PropertyRef Name="forvantadfilid" />
+          </Key>
+          <Property Name="forvantadfilid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="filkravid" Type="Int32" Nullable="false" />
+          <Property Name="foreskriftsid" Type="Int32" />
+          <Property Name="filmask" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="regexp" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="obligatorisk" Type="Boolean" Nullable="false" />
+          <Property Name="tom" Type="Boolean" Nullable="false" />
+          <Property Name="skapaddatum" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="skapadav" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="andraddatum" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="andradav" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="admForvantadleveran">
+          <Key>
+            <PropertyRef Name="forvantadleveransid" />
+          </Key>
+          <Property Name="forvantadleveransid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="delregisterid" Type="Int32" Nullable="false" />
+          <Property Name="filkravid" Type="Int32" Nullable="false" />
+          <Property Name="period" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="uppgiftsstart" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="uppgiftsslut" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="rapporteringsstart" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="rapporteringsslut" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="rapporteringsenast" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="paminnelse1" Type="DateTime" Precision="0" />
+          <Property Name="paminnelse2" Type="DateTime" Precision="0" />
+          <Property Name="paminnelse3" Type="DateTime" Precision="0" />
+          <Property Name="skapaddatum" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="skapadav" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="andraddatum" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="andradav" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="admDelregister" Relationship="Self.FK_admForvantadleverans_admDelregister" FromRole="admForvantadleverans" ToRole="admDelregister" />
+        </EntityType>
+        <EntityType Name="admInformation">
+          <Key>
+            <PropertyRef Name="informationsid" />
+          </Key>
+          <Property Name="informationsid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="informationstyp" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="text" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="skapaddatum" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="skapadav" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="andraddatum" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="andradav" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="admKonfiguration">
+          <Key>
+            <PropertyRef Name="konfigurationsid" />
+          </Key>
+          <Property Name="konfigurationsid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="typ" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="varde" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="skapaddatum" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="skapadav" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="andraddatum" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="andradav" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="admRegister">
+          <Key>
+            <PropertyRef Name="registerid" />
+          </Key>
+          <Property Name="registerid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="registernamn" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="beskrivning" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="kortnamn" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="inrapporteringsportal" Type="Boolean" Nullable="false" />
+          <Property Name="skapaddatum" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="skapadav" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="andraddatum" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="andradav" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="admDelregisters" Relationship="Self.FK_admDelregister_admRegister" FromRole="admRegister" ToRole="admDelregister" />
+          <NavigationProperty Name="admFAQs" Relationship="Self.FK_admFAQ_admRegister" FromRole="admRegister" ToRole="admFAQ" />
+        </EntityType>
+        <EntityType Name="admUppgiftsskyldighet">
+          <Key>
+            <PropertyRef Name="uppgiftsskyldighetid" />
+          </Key>
+          <Property Name="uppgiftsskyldighetid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="organisationsid" Type="Int32" Nullable="false" />
+          <Property Name="delregisterid" Type="Int32" Nullable="false" />
+          <Property Name="skyldigfrom" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="skyldigtom" Type="DateTime" Precision="0" />
+          <Property Name="rapporterarperenhet" Type="Boolean" Nullable="false" />
+          <Property Name="skapaddatum" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="skapadav" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="andraddatum" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="andradav" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="admDelregister" Relationship="Self.FK_admUppgiftsskyldighet_admDelregister" FromRole="admUppgiftsskyldighet" ToRole="admDelregister" />
+          <NavigationProperty Name="Organisation" Relationship="Self.FK_admUppgiftsskyldighet_Organisation" FromRole="admUppgiftsskyldighet" ToRole="Organisation" />
+        </EntityType>
+        <EntityType Name="Kontaktperson">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="LockOutEndDateUtc" Type="DateTime" Precision="3" />
+          <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="organisationsid" Type="Int32" Nullable="false" />
+          <Property Name="namn" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="aktivfrom" Type="DateTime" Precision="0" />
+          <Property Name="aktivtom" Type="DateTime" Precision="0" />
+          <Property Name="status" Type="Int32" />
+          <Property Name="skapaddatum" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="skapadav" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="andraddatum" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="andradav" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Organisation" Relationship="Self.FK_Kontaktperson_Organisation" FromRole="Kontaktperson" ToRole="Organisation" />
+        </EntityType>
+        <EntityType Name="Organisation">
+          <Key>
+            <PropertyRef Name="organisationsid" />
+          </Key>
+          <Property Name="organisationsid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="landstingskod" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="kommunkod" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+          <Property Name="inrapporteringskod" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="organisationstyp" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="lanid" Type="Int32" />
+          <Property Name="organisationsnr" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="organisationsnamn" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="hemsida" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="epostadress" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="telefonnr" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="adress" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="postnr" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="postort" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="epostdoman" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="aktivfrom" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="aktivtom" Type="DateTime" Precision="0" />
+          <Property Name="skapaddatum" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="skapadav" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="andraddatum" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="andradav" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="admUppgiftsskyldighets" Relationship="Self.FK_admUppgiftsskyldighet_Organisation" FromRole="Organisation" ToRole="admUppgiftsskyldighet" />
+          <NavigationProperty Name="Kontaktpersons" Relationship="Self.FK_Kontaktperson_Organisation" FromRole="Organisation" ToRole="Kontaktperson" />
+          <NavigationProperty Name="Organisationsenhets" Relationship="Self.FK_Organisationsenhet_Organisation" FromRole="Organisation" ToRole="Organisationsenhet" />
+        </EntityType>
+        <EntityType Name="Organisationsenhet">
+          <Key>
+            <PropertyRef Name="organisationsenhetsid" />
+          </Key>
+          <Property Name="organisationsenhetsid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="organisationsid" Type="Int32" Nullable="false" />
+          <Property Name="enhetsnamn" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="enhetskod" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="aktivfrom" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="aktivtom" Type="DateTime" Precision="0" />
+          <Property Name="skapaddatum" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="skapadav" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="andraddatum" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="andradav" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Organisation" Relationship="Self.FK_Organisationsenhet_Organisation" FromRole="Organisationsenhet" ToRole="Organisation" />
+        </EntityType>
+        <Association Name="FK_admDelregister_admRegister">
+          <End Role="admRegister" Type="Self.admRegister" Multiplicity="1" />
+          <End Role="admDelregister" Type="Self.admDelregister" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="admRegister">
+              <PropertyRef Name="registerid" />
+            </Principal>
+            <Dependent Role="admDelregister">
+              <PropertyRef Name="registerid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_admForvantadleverans_admDelregister">
+          <End Role="admDelregister" Type="Self.admDelregister" Multiplicity="1" />
+          <End Role="admForvantadleverans" Type="Self.admForvantadleveran" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="admDelregister">
+              <PropertyRef Name="delregisterid" />
+            </Principal>
+            <Dependent Role="admForvantadleverans">
+              <PropertyRef Name="delregisterid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_admUppgiftsskyldighet_admDelregister">
+          <End Role="admDelregister" Type="Self.admDelregister" Multiplicity="1" />
+          <End Role="admUppgiftsskyldighet" Type="Self.admUppgiftsskyldighet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="admDelregister">
+              <PropertyRef Name="delregisterid" />
+            </Principal>
+            <Dependent Role="admUppgiftsskyldighet">
+              <PropertyRef Name="delregisterid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_admFAQ_admFAQKategori">
+          <End Role="admFAQKategori" Type="Self.admFAQKategori" Multiplicity="0..1" />
+          <End Role="admFAQ" Type="Self.admFAQ" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="admFAQKategori">
+              <PropertyRef Name="faqkatergoriid" />
+            </Principal>
+            <Dependent Role="admFAQ">
+              <PropertyRef Name="faqkatergoriid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_admFAQ_admRegister">
+          <End Role="admRegister" Type="Self.admRegister" Multiplicity="0..1" />
+          <End Role="admFAQ" Type="Self.admFAQ" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="admRegister">
+              <PropertyRef Name="registerid" />
+            </Principal>
+            <Dependent Role="admFAQ">
+              <PropertyRef Name="registerid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_admUppgiftsskyldighet_Organisation">
+          <End Role="Organisation" Type="Self.Organisation" Multiplicity="1" />
+          <End Role="admUppgiftsskyldighet" Type="Self.admUppgiftsskyldighet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Organisation">
+              <PropertyRef Name="organisationsid" />
+            </Principal>
+            <Dependent Role="admUppgiftsskyldighet">
+              <PropertyRef Name="organisationsid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Kontaktperson_Organisation">
+          <End Role="Organisation" Type="Self.Organisation" Multiplicity="1" />
+          <End Role="Kontaktperson" Type="Self.Kontaktperson" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Organisation">
+              <PropertyRef Name="organisationsid" />
+            </Principal>
+            <Dependent Role="Kontaktperson">
+              <PropertyRef Name="organisationsid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Organisationsenhet_Organisation">
+          <End Role="Organisation" Type="Self.Organisation" Multiplicity="1" />
+          <End Role="Organisationsenhet" Type="Self.Organisationsenhet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Organisation">
+              <PropertyRef Name="organisationsid" />
+            </Principal>
+            <Dependent Role="Organisationsenhet">
+              <PropertyRef Name="organisationsid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DB11Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="admDelregisters" EntityType="Self.admDelregister" />
+          <EntitySet Name="admFAQs" EntityType="Self.admFAQ" />
+          <EntitySet Name="admFAQKategoris" EntityType="Self.admFAQKategori" />
+          <EntitySet Name="admForvantadfils" EntityType="Self.admForvantadfil" />
+          <EntitySet Name="admForvantadleverans" EntityType="Self.admForvantadleveran" />
+          <EntitySet Name="admInformations" EntityType="Self.admInformation" />
+          <EntitySet Name="admKonfigurations" EntityType="Self.admKonfiguration" />
+          <EntitySet Name="admRegisters" EntityType="Self.admRegister" />
+          <EntitySet Name="admUppgiftsskyldighets" EntityType="Self.admUppgiftsskyldighet" />
+          <EntitySet Name="Kontaktpersons" EntityType="Self.Kontaktperson" />
+          <EntitySet Name="Organisations" EntityType="Self.Organisation" />
+          <EntitySet Name="Organisationsenhets" EntityType="Self.Organisationsenhet" />
+          <AssociationSet Name="FK_admDelregister_admRegister" Association="Self.FK_admDelregister_admRegister">
+            <End Role="admRegister" EntitySet="admRegisters" />
+            <End Role="admDelregister" EntitySet="admDelregisters" />
+          </AssociationSet>
+          <AssociationSet Name="FK_admForvantadleverans_admDelregister" Association="Self.FK_admForvantadleverans_admDelregister">
+            <End Role="admDelregister" EntitySet="admDelregisters" />
+            <End Role="admForvantadleverans" EntitySet="admForvantadleverans" />
+          </AssociationSet>
+          <AssociationSet Name="FK_admUppgiftsskyldighet_admDelregister" Association="Self.FK_admUppgiftsskyldighet_admDelregister">
+            <End Role="admDelregister" EntitySet="admDelregisters" />
+            <End Role="admUppgiftsskyldighet" EntitySet="admUppgiftsskyldighets" />
+          </AssociationSet>
+          <AssociationSet Name="FK_admFAQ_admFAQKategori" Association="Self.FK_admFAQ_admFAQKategori">
+            <End Role="admFAQKategori" EntitySet="admFAQKategoris" />
+            <End Role="admFAQ" EntitySet="admFAQs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_admFAQ_admRegister" Association="Self.FK_admFAQ_admRegister">
+            <End Role="admRegister" EntitySet="admRegisters" />
+            <End Role="admFAQ" EntitySet="admFAQs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_admUppgiftsskyldighet_Organisation" Association="Self.FK_admUppgiftsskyldighet_Organisation">
+            <End Role="Organisation" EntitySet="Organisations" />
+            <End Role="admUppgiftsskyldighet" EntitySet="admUppgiftsskyldighets" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Kontaktperson_Organisation" Association="Self.FK_Kontaktperson_Organisation">
+            <End Role="Organisation" EntitySet="Organisations" />
+            <End Role="Kontaktperson" EntitySet="Kontaktpersons" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Organisationsenhet_Organisation" Association="Self.FK_Organisationsenhet_Organisation">
+            <End Role="Organisation" EntitySet="Organisations" />
+            <End Role="Organisationsenhet" EntitySet="Organisationsenhets" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DB11ModelStoreContainer" CdmEntityContainer="DB11Entities">
+          <EntitySetMapping Name="admDelregisters">
+            <EntityTypeMapping TypeName="DB11Model.admDelregister">
+              <MappingFragment StoreEntitySet="admDelregister">
+                <ScalarProperty Name="delregisterid" ColumnName="delregisterid" />
+                <ScalarProperty Name="registerid" ColumnName="registerid" />
+                <ScalarProperty Name="delregisternamn" ColumnName="delregisternamn" />
+                <ScalarProperty Name="beskrivning" ColumnName="beskrivning" />
+                <ScalarProperty Name="kortnamn" ColumnName="kortnamn" />
+                <ScalarProperty Name="inrapporteringsportal" ColumnName="inrapporteringsportal" />
+                <ScalarProperty Name="slussmapp" ColumnName="slussmapp" />
+                <ScalarProperty Name="skapaddatum" ColumnName="skapaddatum" />
+                <ScalarProperty Name="skapadav" ColumnName="skapadav" />
+                <ScalarProperty Name="andraddatum" ColumnName="andraddatum" />
+                <ScalarProperty Name="andradav" ColumnName="andradav" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="admFAQs">
+            <EntityTypeMapping TypeName="DB11Model.admFAQ">
+              <MappingFragment StoreEntitySet="admFAQ">
+                <ScalarProperty Name="faqid" ColumnName="faqid" />
+                <ScalarProperty Name="registerid" ColumnName="registerid" />
+                <ScalarProperty Name="faqkatergoriid" ColumnName="faqkatergoriid" />
+                <ScalarProperty Name="fraga" ColumnName="fraga" />
+                <ScalarProperty Name="svar" ColumnName="svar" />
+                <ScalarProperty Name="skapaddatum" ColumnName="skapaddatum" />
+                <ScalarProperty Name="skapadav" ColumnName="skapadav" />
+                <ScalarProperty Name="andraddatum" ColumnName="andraddatum" />
+                <ScalarProperty Name="andradav" ColumnName="andradav" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="admFAQKategoris">
+            <EntityTypeMapping TypeName="DB11Model.admFAQKategori">
+              <MappingFragment StoreEntitySet="admFAQKategori">
+                <ScalarProperty Name="faqkatergoriid" ColumnName="faqkatergoriid" />
+                <ScalarProperty Name="kategori" ColumnName="kategori" />
+                <ScalarProperty Name="skapaddatum" ColumnName="skapaddatum" />
+                <ScalarProperty Name="skapadav" ColumnName="skapadav" />
+                <ScalarProperty Name="andraddatum" ColumnName="andraddatum" />
+                <ScalarProperty Name="andradav" ColumnName="andradav" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="admForvantadfils">
+            <EntityTypeMapping TypeName="DB11Model.admForvantadfil">
+              <MappingFragment StoreEntitySet="admForvantadfil">
+                <ScalarProperty Name="forvantadfilid" ColumnName="forvantadfilid" />
+                <ScalarProperty Name="filkravid" ColumnName="filkravid" />
+                <ScalarProperty Name="foreskriftsid" ColumnName="foreskriftsid" />
+                <ScalarProperty Name="filmask" ColumnName="filmask" />
+                <ScalarProperty Name="regexp" ColumnName="regexp" />
+                <ScalarProperty Name="obligatorisk" ColumnName="obligatorisk" />
+                <ScalarProperty Name="tom" ColumnName="tom" />
+                <ScalarProperty Name="skapaddatum" ColumnName="skapaddatum" />
+                <ScalarProperty Name="skapadav" ColumnName="skapadav" />
+                <ScalarProperty Name="andraddatum" ColumnName="andraddatum" />
+                <ScalarProperty Name="andradav" ColumnName="andradav" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="admForvantadleverans">
+            <EntityTypeMapping TypeName="DB11Model.admForvantadleveran">
+              <MappingFragment StoreEntitySet="admForvantadleverans">
+                <ScalarProperty Name="forvantadleveransid" ColumnName="forvantadleveransid" />
+                <ScalarProperty Name="delregisterid" ColumnName="delregisterid" />
+                <ScalarProperty Name="filkravid" ColumnName="filkravid" />
+                <ScalarProperty Name="period" ColumnName="period" />
+                <ScalarProperty Name="uppgiftsstart" ColumnName="uppgiftsstart" />
+                <ScalarProperty Name="uppgiftsslut" ColumnName="uppgiftsslut" />
+                <ScalarProperty Name="rapporteringsstart" ColumnName="rapporteringsstart" />
+                <ScalarProperty Name="rapporteringsslut" ColumnName="rapporteringsslut" />
+                <ScalarProperty Name="rapporteringsenast" ColumnName="rapporteringsenast" />
+                <ScalarProperty Name="paminnelse1" ColumnName="paminnelse1" />
+                <ScalarProperty Name="paminnelse2" ColumnName="paminnelse2" />
+                <ScalarProperty Name="paminnelse3" ColumnName="paminnelse3" />
+                <ScalarProperty Name="skapaddatum" ColumnName="skapaddatum" />
+                <ScalarProperty Name="skapadav" ColumnName="skapadav" />
+                <ScalarProperty Name="andraddatum" ColumnName="andraddatum" />
+                <ScalarProperty Name="andradav" ColumnName="andradav" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="admInformations">
+            <EntityTypeMapping TypeName="DB11Model.admInformation">
+              <MappingFragment StoreEntitySet="admInformation">
+                <ScalarProperty Name="informationsid" ColumnName="informationsid" />
+                <ScalarProperty Name="informationstyp" ColumnName="informationstyp" />
+                <ScalarProperty Name="text" ColumnName="text" />
+                <ScalarProperty Name="skapaddatum" ColumnName="skapaddatum" />
+                <ScalarProperty Name="skapadav" ColumnName="skapadav" />
+                <ScalarProperty Name="andraddatum" ColumnName="andraddatum" />
+                <ScalarProperty Name="andradav" ColumnName="andradav" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="admKonfigurations">
+            <EntityTypeMapping TypeName="DB11Model.admKonfiguration">
+              <MappingFragment StoreEntitySet="admKonfiguration">
+                <ScalarProperty Name="konfigurationsid" ColumnName="konfigurationsid" />
+                <ScalarProperty Name="typ" ColumnName="typ" />
+                <ScalarProperty Name="varde" ColumnName="varde" />
+                <ScalarProperty Name="skapaddatum" ColumnName="skapaddatum" />
+                <ScalarProperty Name="skapadav" ColumnName="skapadav" />
+                <ScalarProperty Name="andraddatum" ColumnName="andraddatum" />
+                <ScalarProperty Name="andradav" ColumnName="andradav" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="admRegisters">
+            <EntityTypeMapping TypeName="DB11Model.admRegister">
+              <MappingFragment StoreEntitySet="admRegister">
+                <ScalarProperty Name="registerid" ColumnName="registerid" />
+                <ScalarProperty Name="registernamn" ColumnName="registernamn" />
+                <ScalarProperty Name="beskrivning" ColumnName="beskrivning" />
+                <ScalarProperty Name="kortnamn" ColumnName="kortnamn" />
+                <ScalarProperty Name="inrapporteringsportal" ColumnName="inrapporteringsportal" />
+                <ScalarProperty Name="skapaddatum" ColumnName="skapaddatum" />
+                <ScalarProperty Name="skapadav" ColumnName="skapadav" />
+                <ScalarProperty Name="andraddatum" ColumnName="andraddatum" />
+                <ScalarProperty Name="andradav" ColumnName="andradav" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="admUppgiftsskyldighets">
+            <EntityTypeMapping TypeName="DB11Model.admUppgiftsskyldighet">
+              <MappingFragment StoreEntitySet="admUppgiftsskyldighet">
+                <ScalarProperty Name="uppgiftsskyldighetid" ColumnName="uppgiftsskyldighetid" />
+                <ScalarProperty Name="organisationsid" ColumnName="organisationsid" />
+                <ScalarProperty Name="delregisterid" ColumnName="delregisterid" />
+                <ScalarProperty Name="skyldigfrom" ColumnName="skyldigfrom" />
+                <ScalarProperty Name="skyldigtom" ColumnName="skyldigtom" />
+                <ScalarProperty Name="rapporterarperenhet" ColumnName="rapporterarperenhet" />
+                <ScalarProperty Name="skapaddatum" ColumnName="skapaddatum" />
+                <ScalarProperty Name="skapadav" ColumnName="skapadav" />
+                <ScalarProperty Name="andraddatum" ColumnName="andraddatum" />
+                <ScalarProperty Name="andradav" ColumnName="andradav" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Kontaktpersons">
+            <EntityTypeMapping TypeName="DB11Model.Kontaktperson">
+              <MappingFragment StoreEntitySet="Kontaktperson">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+                <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+                <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+                <ScalarProperty Name="LockOutEndDateUtc" ColumnName="LockOutEndDateUtc" />
+                <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+                <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="organisationsid" ColumnName="organisationsid" />
+                <ScalarProperty Name="namn" ColumnName="namn" />
+                <ScalarProperty Name="aktivfrom" ColumnName="aktivfrom" />
+                <ScalarProperty Name="aktivtom" ColumnName="aktivtom" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="skapaddatum" ColumnName="skapaddatum" />
+                <ScalarProperty Name="skapadav" ColumnName="skapadav" />
+                <ScalarProperty Name="andraddatum" ColumnName="andraddatum" />
+                <ScalarProperty Name="andradav" ColumnName="andradav" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Organisations">
+            <EntityTypeMapping TypeName="DB11Model.Organisation">
+              <MappingFragment StoreEntitySet="Organisation">
+                <ScalarProperty Name="organisationsid" ColumnName="organisationsid" />
+                <ScalarProperty Name="landstingskod" ColumnName="landstingskod" />
+                <ScalarProperty Name="kommunkod" ColumnName="kommunkod" />
+                <ScalarProperty Name="inrapporteringskod" ColumnName="inrapporteringskod" />
+                <ScalarProperty Name="organisationstyp" ColumnName="organisationstyp" />
+                <ScalarProperty Name="lanid" ColumnName="lanid" />
+                <ScalarProperty Name="organisationsnr" ColumnName="organisationsnr" />
+                <ScalarProperty Name="organisationsnamn" ColumnName="organisationsnamn" />
+                <ScalarProperty Name="hemsida" ColumnName="hemsida" />
+                <ScalarProperty Name="epostadress" ColumnName="epostadress" />
+                <ScalarProperty Name="telefonnr" ColumnName="telefonnr" />
+                <ScalarProperty Name="adress" ColumnName="adress" />
+                <ScalarProperty Name="postnr" ColumnName="postnr" />
+                <ScalarProperty Name="postort" ColumnName="postort" />
+                <ScalarProperty Name="epostdoman" ColumnName="epostdoman" />
+                <ScalarProperty Name="aktivfrom" ColumnName="aktivfrom" />
+                <ScalarProperty Name="aktivtom" ColumnName="aktivtom" />
+                <ScalarProperty Name="skapaddatum" ColumnName="skapaddatum" />
+                <ScalarProperty Name="skapadav" ColumnName="skapadav" />
+                <ScalarProperty Name="andraddatum" ColumnName="andraddatum" />
+                <ScalarProperty Name="andradav" ColumnName="andradav" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Organisationsenhets">
+            <EntityTypeMapping TypeName="DB11Model.Organisationsenhet">
+              <MappingFragment StoreEntitySet="Organisationsenhet">
+                <ScalarProperty Name="organisationsenhetsid" ColumnName="organisationsenhetsid" />
+                <ScalarProperty Name="organisationsid" ColumnName="organisationsid" />
+                <ScalarProperty Name="enhetsnamn" ColumnName="enhetsnamn" />
+                <ScalarProperty Name="enhetskod" ColumnName="enhetskod" />
+                <ScalarProperty Name="aktivfrom" ColumnName="aktivfrom" />
+                <ScalarProperty Name="aktivtom" ColumnName="aktivtom" />
+                <ScalarProperty Name="skapaddatum" ColumnName="skapaddatum" />
+                <ScalarProperty Name="skapadav" ColumnName="skapadav" />
+                <ScalarProperty Name="andraddatum" ColumnName="andraddatum" />
+                <ScalarProperty Name="andradav" ColumnName="andradav" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
