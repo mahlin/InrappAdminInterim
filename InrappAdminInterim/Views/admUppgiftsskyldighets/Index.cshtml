@@ -1,0 +1,81 @@
+﻿@model IEnumerable<InrappAdminInterim.Models.admUppgiftsskyldighet>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.skyldigfrom)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.skyldigtom)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.rapporterarperenhet)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.skapaddatum)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.skapadav)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.andraddatum)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.andradav)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.admDelregister.delregisternamn)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Organisation.landstingskod)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.skyldigfrom)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.skyldigtom)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.rapporterarperenhet)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.skapaddatum)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.skapadav)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.andraddatum)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.andradav)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.admDelregister.delregisternamn)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Organisation.landstingskod)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.uppgiftsskyldighetid }) |
+            @Html.ActionLink("Details", "Details", new { id=item.uppgiftsskyldighetid }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.uppgiftsskyldighetid })
+        </td>
+    </tr>
+}
+
+</table>

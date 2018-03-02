@@ -1,0 +1,90 @@
+﻿@model InrappAdminInterim.Models.admUppgiftsskyldighet
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>admUppgiftsskyldighet</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.skyldigfrom)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.skyldigfrom)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.skyldigtom)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.skyldigtom)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.rapporterarperenhet)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.rapporterarperenhet)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.skapaddatum)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.skapaddatum)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.skapadav)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.skapadav)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.andraddatum)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.andraddatum)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.andradav)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.andradav)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.admDelregister.delregisternamn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.admDelregister.delregisternamn)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Organisation.landstingskod)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Organisation.landstingskod)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.uppgiftsskyldighetid }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

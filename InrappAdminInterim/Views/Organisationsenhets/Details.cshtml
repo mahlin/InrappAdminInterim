@@ -1,0 +1,90 @@
+﻿@model InrappAdminInterim.Models.Organisationsenhet
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Organisationsenhet</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.enhetsnamn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.enhetsnamn)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.enhetskod)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.enhetskod)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.aktivfrom)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.aktivfrom)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.aktivtom)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.aktivtom)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.skapaddatum)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.skapaddatum)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.skapadav)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.skapadav)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.andraddatum)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.andraddatum)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.andradav)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.andradav)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Organisation.landstingskod)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Organisation.landstingskod)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.organisationsenhetsid }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

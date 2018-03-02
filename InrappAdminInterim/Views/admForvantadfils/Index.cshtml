@@ -1,0 +1,87 @@
+﻿@model IEnumerable<InrappAdminInterim.Models.admForvantadfil>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.filkravid)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.foreskriftsid)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.filmask)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.regexp)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.obligatorisk)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tom)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.skapaddatum)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.skapadav)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.andraddatum)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.andradav)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.filkravid)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.foreskriftsid)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.filmask)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.regexp)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.obligatorisk)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tom)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.skapaddatum)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.skapadav)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.andraddatum)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.andradav)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.forvantadfilid }) |
+            @Html.ActionLink("Details", "Details", new { id=item.forvantadfilid }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.forvantadfilid })
+        </td>
+    </tr>
+}
+
+</table>

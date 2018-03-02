@@ -1,0 +1,66 @@
+﻿@model InrappAdminInterim.Models.admInformation
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>admInformation</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.informationstyp)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.informationstyp)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.text)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.text)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.skapaddatum)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.skapaddatum)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.skapadav)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.skapadav)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.andraddatum)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.andraddatum)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.andradav)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.andradav)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.informationsid }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

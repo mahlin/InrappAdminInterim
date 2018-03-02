@@ -1,0 +1,147 @@
+﻿@model IEnumerable<InrappAdminInterim.Models.Kontaktperson>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EmailConfirmed)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PasswordHash)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SecurityStamp)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PhoneNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PhoneNumberConfirmed)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TwoFactorEnabled)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LockOutEndDateUtc)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LockoutEnabled)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AccessFailedCount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UserName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.namn)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.aktivfrom)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.aktivtom)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.status)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.skapaddatum)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.skapadav)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.andraddatum)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.andradav)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Organisation.landstingskod)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EmailConfirmed)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PasswordHash)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SecurityStamp)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PhoneNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PhoneNumberConfirmed)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TwoFactorEnabled)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LockOutEndDateUtc)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LockoutEnabled)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AccessFailedCount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UserName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.namn)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.aktivfrom)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.aktivtom)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.status)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.skapaddatum)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.skapadav)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.andraddatum)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.andradav)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Organisation.landstingskod)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

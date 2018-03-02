@@ -1,0 +1,117 @@
+﻿@model IEnumerable<InrappAdminInterim.Models.admForvantadleveran>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.filkravid)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.period)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.uppgiftsstart)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.uppgiftsslut)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.rapporteringsstart)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.rapporteringsslut)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.rapporteringsenast)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.paminnelse1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.paminnelse2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.paminnelse3)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.skapaddatum)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.skapadav)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.andraddatum)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.andradav)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.admDelregister.delregisternamn)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.filkravid)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.period)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.uppgiftsstart)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.uppgiftsslut)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.rapporteringsstart)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.rapporteringsslut)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.rapporteringsenast)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.paminnelse1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.paminnelse2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.paminnelse3)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.skapaddatum)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.skapadav)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.andraddatum)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.andradav)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.admDelregister.delregisternamn)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.forvantadleveransid }) |
+            @Html.ActionLink("Details", "Details", new { id=item.forvantadleveransid }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.forvantadleveransid })
+        </td>
+    </tr>
+}
+
+</table>

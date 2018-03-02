@@ -1,0 +1,178 @@
+﻿@model InrappAdminInterim.Models.Kontaktperson
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Kontaktperson</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EmailConfirmed)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmailConfirmed)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PasswordHash)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PasswordHash)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SecurityStamp)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SecurityStamp)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PhoneNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PhoneNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PhoneNumberConfirmed)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PhoneNumberConfirmed)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TwoFactorEnabled)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TwoFactorEnabled)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LockOutEndDateUtc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LockOutEndDateUtc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LockoutEnabled)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LockoutEnabled)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AccessFailedCount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AccessFailedCount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UserName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.namn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.namn)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.aktivfrom)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.aktivfrom)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.aktivtom)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.aktivtom)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.status)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.skapaddatum)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.skapaddatum)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.skapadav)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.skapadav)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.andraddatum)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.andraddatum)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.andradav)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.andradav)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Organisation.landstingskod)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Organisation.landstingskod)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,138 @@
+﻿@model InrappAdminInterim.Models.admForvantadleveran
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>admForvantadleveran</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.filkravid)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.filkravid)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.period)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.period)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.uppgiftsstart)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.uppgiftsstart)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.uppgiftsslut)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.uppgiftsslut)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.rapporteringsstart)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.rapporteringsstart)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.rapporteringsslut)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.rapporteringsslut)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.rapporteringsenast)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.rapporteringsenast)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.paminnelse1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.paminnelse1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.paminnelse2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.paminnelse2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.paminnelse3)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.paminnelse3)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.skapaddatum)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.skapaddatum)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.skapadav)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.skapadav)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.andraddatum)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.andraddatum)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.andradav)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.andradav)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.admDelregister.delregisternamn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.admDelregister.delregisternamn)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.forvantadleveransid }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

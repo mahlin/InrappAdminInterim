@@ -1,0 +1,184 @@
+﻿@model InrappAdminInterim.Models.Organisation
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Organisation</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.landstingskod)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.landstingskod)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.kommunkod)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.kommunkod)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.inrapporteringskod)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.inrapporteringskod)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.organisationstyp)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.organisationstyp)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.lanid)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.lanid)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.organisationsnr)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.organisationsnr)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.organisationsnamn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.organisationsnamn)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.hemsida)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.hemsida)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.epostadress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.epostadress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.telefonnr)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.telefonnr)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.adress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.adress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.postnr)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.postnr)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.postort)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.postort)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.epostdoman)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.epostdoman)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.aktivfrom)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.aktivfrom)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.aktivtom)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.aktivtom)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.skapaddatum)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.skapaddatum)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.skapadav)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.skapadav)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.andraddatum)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.andraddatum)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.andradav)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.andradav)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

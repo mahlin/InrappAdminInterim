@@ -1,0 +1,147 @@
+﻿@model IEnumerable<InrappAdminInterim.Models.Organisation>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.landstingskod)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.kommunkod)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.inrapporteringskod)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.organisationstyp)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lanid)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.organisationsnr)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.organisationsnamn)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.hemsida)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.epostadress)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.telefonnr)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.adress)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.postnr)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.postort)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.epostdoman)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.aktivfrom)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.aktivtom)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.skapaddatum)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.skapadav)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.andraddatum)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.andradav)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.landstingskod)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.kommunkod)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.inrapporteringskod)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.organisationstyp)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lanid)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.organisationsnr)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.organisationsnamn)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.hemsida)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.epostadress)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.telefonnr)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.adress)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.postnr)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.postort)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.epostdoman)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.aktivfrom)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.aktivtom)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.skapaddatum)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.skapadav)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.andraddatum)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.andradav)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.organisationsid }) |
+            @Html.ActionLink("Details", "Details", new { id=item.organisationsid }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.organisationsid })
+        </td>
+    </tr>
+}
+
+</table>
