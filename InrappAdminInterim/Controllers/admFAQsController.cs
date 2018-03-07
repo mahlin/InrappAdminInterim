@@ -39,8 +39,12 @@ namespace InrappAdminInterim.Controllers
         // GET: admFAQs/Create
         public ActionResult Create()
         {
+            var listItems = new List<SelectListItem>();
+            listItems.Add(new SelectListItem() { Value = null, Text = "Inget register" });
+            listItems.AddRange(db.admRegisters.Select(u => new SelectListItem { Value = u.registerid.ToString(), Text = u.registernamn }).ToList());
             ViewBag.faqkatergoriid = new SelectList(db.admFAQKategoris, "faqkatergoriid", "kategori");
-            ViewBag.registerid = new SelectList(db.admRegisters, "registerid", "registernamn");
+            //ViewBag.registerid = new SelectList(db.admRegisters, "registerid", "registernamn");
+            ViewBag.registerId = new SelectList(listItems, "Value", "Text");
             return View();
         }
 
@@ -59,7 +63,14 @@ namespace InrappAdminInterim.Controllers
             }
 
             ViewBag.faqkatergoriid = new SelectList(db.admFAQKategoris, "faqkatergoriid", "kategori", admFAQ.faqkatergoriid);
-            ViewBag.registerid = new SelectList(db.admRegisters, "registerid", "registernamn", admFAQ.registerid);
+            //ViewBag.registerid = new SelectList(db.admRegisters, "registerid", "registernamn", admFAQ.registerid);
+            var listItems = new List<SelectListItem>();
+            listItems.Add(new SelectListItem() { Value = null, Text = "Inget register" });
+            listItems.AddRange(db.admRegisters.Select(u => new SelectListItem { Value = u.registerid.ToString(), Text = u.registernamn }).ToList());
+            ViewBag.faqkatergoriid = new SelectList(db.admFAQKategoris, "faqkatergoriid", "kategori");
+            //ViewBag.registerid = new SelectList(db.admRegisters, "registerid", "registernamn");
+            ViewBag.registerId = new SelectList(listItems, "Value", "Text");
+
             return View(admFAQ);
         }
 
@@ -76,7 +87,14 @@ namespace InrappAdminInterim.Controllers
                 return HttpNotFound();
             }
             ViewBag.faqkatergoriid = new SelectList(db.admFAQKategoris, "faqkatergoriid", "kategori", admFAQ.faqkatergoriid);
-            ViewBag.registerid = new SelectList(db.admRegisters, "registerid", "registernamn", admFAQ.registerid);
+            var listItems = new List<SelectListItem>();
+            listItems.Add(new SelectListItem() { Value = null, Text = "Inget register" });
+            listItems.AddRange(db.admRegisters.Select(u => new SelectListItem { Value = u.registerid.ToString(), Text = u.registernamn }).ToList());
+            ViewBag.faqkatergoriid = new SelectList(db.admFAQKategoris, "faqkatergoriid", "kategori");
+            //ViewBag.registerid = new SelectList(db.admRegisters, "registerid", "registernamn");
+            ViewBag.registerId = new SelectList(listItems, "Value", "Text");
+
+            //ViewBag.registerid = new SelectList(db.admRegisters, "registerid", "registernamn", admFAQ.registerid);
             return View(admFAQ);
         }
 
@@ -94,7 +112,14 @@ namespace InrappAdminInterim.Controllers
                 return RedirectToAction("Index");
             }
             ViewBag.faqkatergoriid = new SelectList(db.admFAQKategoris, "faqkatergoriid", "kategori", admFAQ.faqkatergoriid);
-            ViewBag.registerid = new SelectList(db.admRegisters, "registerid", "registernamn", admFAQ.registerid);
+            //ViewBag.registerid = new SelectList(db.admRegisters, "registerid", "registernamn", admFAQ.registerid);
+            var listItems = new List<SelectListItem>();
+            listItems.Add(new SelectListItem() { Value = null, Text = "Inget register" });
+            listItems.AddRange(db.admRegisters.Select(u => new SelectListItem { Value = u.registerid.ToString(), Text = u.registernamn }).ToList());
+            ViewBag.faqkatergoriid = new SelectList(db.admFAQKategoris, "faqkatergoriid", "kategori");
+            //ViewBag.registerid = new SelectList(db.admRegisters, "registerid", "registernamn");
+            ViewBag.registerId = new SelectList(listItems, "Value", "Text");
+
             return View(admFAQ);
         }
 
