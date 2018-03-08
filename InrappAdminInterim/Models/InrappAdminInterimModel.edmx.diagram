@@ -6,8 +6,6 @@
     <edmx:Diagrams>
       <Diagram DiagramId="65fd211b8e7245abb49370f96fc51d5e" Name="Diagram1">
         <EntityTypeShape EntityType="DB11Model.admDelregister" Width="1.5" PointX="0.75" PointY="2.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="DB11Model.admFAQ" Width="1.5" PointX="3.75" PointY="20.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="DB11Model.admFAQKategori" Width="1.5" PointX="1.5" PointY="25" IsExpanded="true" />
         <EntityTypeShape EntityType="DB11Model.admForvantadfil" Width="1.5" PointX="5.75" PointY="3.375" IsExpanded="true" />
         <EntityTypeShape EntityType="DB11Model.admForvantadleveran" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="DB11Model.admInformation" Width="1.5" PointX="5.75" PointY="7.375" IsExpanded="true" />
@@ -20,11 +18,13 @@
         <AssociationConnector Association="DB11Model.FK_admDelregister_admRegister" ManuallyRouted="false" />
         <AssociationConnector Association="DB11Model.FK_admForvantadleverans_admDelregister" ManuallyRouted="false" />
         <AssociationConnector Association="DB11Model.FK_admUppgiftsskyldighet_admDelregister" ManuallyRouted="false" />
-        <AssociationConnector Association="DB11Model.FK_admFAQ_admFAQKategori" ManuallyRouted="false" />
-        <AssociationConnector Association="DB11Model.FK_admFAQ_admRegister" ManuallyRouted="false" />
         <AssociationConnector Association="DB11Model.FK_admUppgiftsskyldighet_Organisation" ManuallyRouted="false" />
         <AssociationConnector Association="DB11Model.FK_Kontaktperson_Organisation" ManuallyRouted="false" />
         <AssociationConnector Association="DB11Model.FK_Organisationsenhet_Organisation" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="DB11Model.admFAQ" Width="1.5" PointX="3.75" PointY="20.625" />
+        <EntityTypeShape EntityType="DB11Model.admFAQKategori" Width="1.5" PointX="1.5" PointY="25" />
+        <AssociationConnector Association="DB11Model.FK_admFAQ_admFAQKategori" />
+        <AssociationConnector Association="DB11Model.FK_admFAQ_admRegister" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

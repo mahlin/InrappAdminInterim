@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="DB11Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="DB11Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="admDelregister">
           <Key>
             <PropertyRef Name="delregisterid" />
@@ -27,7 +27,7 @@
           </Key>
           <Property Name="faqid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="registerid" Type="int" />
-          <Property Name="faqkatergoriid" Type="int" />
+          <Property Name="faqkategoriid" Type="int" />
           <Property Name="fraga" Type="nvarchar(max)" />
           <Property Name="svar" Type="nvarchar(max)" />
           <Property Name="skapaddatum" Type="datetime" Nullable="false" />
@@ -37,9 +37,9 @@
         </EntityType>
         <EntityType Name="admFAQKategori">
           <Key>
-            <PropertyRef Name="faqkatergoriid" />
+            <PropertyRef Name="faqkategoriid" />
           </Key>
-          <Property Name="faqkatergoriid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="faqkategoriid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="kategori" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="skapaddatum" Type="datetime" Nullable="false" />
           <Property Name="skapadav" Type="nvarchar" MaxLength="256" Nullable="false" />
@@ -220,10 +220,10 @@
           <End Role="admFAQ" Type="Self.admFAQ" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="admFAQKategori">
-              <PropertyRef Name="faqkatergoriid" />
+              <PropertyRef Name="faqkategoriid" />
             </Principal>
             <Dependent Role="admFAQ">
-              <PropertyRef Name="faqkatergoriid" />
+              <PropertyRef Name="faqkategoriid" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -345,8 +345,7 @@
             <End Role="Organisationsenhet" EntitySet="Organisationsenhet" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="DB11Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -368,34 +367,6 @@
           <NavigationProperty Name="admRegister" Relationship="Self.FK_admDelregister_admRegister" FromRole="admDelregister" ToRole="admRegister" />
           <NavigationProperty Name="admForvantadleverans" Relationship="Self.FK_admForvantadleverans_admDelregister" FromRole="admDelregister" ToRole="admForvantadleverans" />
           <NavigationProperty Name="admUppgiftsskyldighets" Relationship="Self.FK_admUppgiftsskyldighet_admDelregister" FromRole="admDelregister" ToRole="admUppgiftsskyldighet" />
-        </EntityType>
-        <EntityType Name="admFAQ">
-          <Key>
-            <PropertyRef Name="faqid" />
-          </Key>
-          <Property Name="faqid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="registerid" Type="Int32" />
-          <Property Name="faqkatergoriid" Type="Int32" />
-          <Property Name="fraga" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="svar" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="skapaddatum" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="skapadav" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="andraddatum" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="andradav" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="admFAQKategori" Relationship="Self.FK_admFAQ_admFAQKategori" FromRole="admFAQ" ToRole="admFAQKategori" />
-          <NavigationProperty Name="admRegister" Relationship="Self.FK_admFAQ_admRegister" FromRole="admFAQ" ToRole="admRegister" />
-        </EntityType>
-        <EntityType Name="admFAQKategori">
-          <Key>
-            <PropertyRef Name="faqkatergoriid" />
-          </Key>
-          <Property Name="faqkatergoriid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="kategori" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="skapaddatum" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="skapadav" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="andraddatum" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="andradav" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="admFAQs" Relationship="Self.FK_admFAQ_admFAQKategori" FromRole="admFAQKategori" ToRole="admFAQ" />
         </EntityType>
         <EntityType Name="admForvantadfil">
           <Key>
@@ -473,7 +444,7 @@
           <Property Name="andraddatum" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="andradav" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="admDelregisters" Relationship="Self.FK_admDelregister_admRegister" FromRole="admRegister" ToRole="admDelregister" />
-          <NavigationProperty Name="admFAQs" Relationship="Self.FK_admFAQ_admRegister" FromRole="admRegister" ToRole="admFAQ" />
+          <NavigationProperty Name="admFAQs" Relationship="DB11Model.FK_admFAQ_admRegister" FromRole="admRegister" ToRole="admFAQ" />
         </EntityType>
         <EntityType Name="admUppgiftsskyldighet">
           <Key>
@@ -600,30 +571,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_admFAQ_admFAQKategori">
-          <End Role="admFAQKategori" Type="Self.admFAQKategori" Multiplicity="0..1" />
-          <End Role="admFAQ" Type="Self.admFAQ" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="admFAQKategori">
-              <PropertyRef Name="faqkatergoriid" />
-            </Principal>
-            <Dependent Role="admFAQ">
-              <PropertyRef Name="faqkatergoriid" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_admFAQ_admRegister">
-          <End Role="admRegister" Type="Self.admRegister" Multiplicity="0..1" />
-          <End Role="admFAQ" Type="Self.admFAQ" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="admRegister">
-              <PropertyRef Name="registerid" />
-            </Principal>
-            <Dependent Role="admFAQ">
-              <PropertyRef Name="registerid" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_admUppgiftsskyldighet_Organisation">
           <End Role="Organisation" Type="Self.Organisation" Multiplicity="1" />
           <End Role="admUppgiftsskyldighet" Type="Self.admUppgiftsskyldighet" Multiplicity="*" />
@@ -662,8 +609,6 @@
         </Association>
         <EntityContainer Name="DB11Entities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="admDelregisters" EntityType="Self.admDelregister" />
-          <EntitySet Name="admFAQs" EntityType="Self.admFAQ" />
-          <EntitySet Name="admFAQKategoris" EntityType="Self.admFAQKategori" />
           <EntitySet Name="admForvantadfils" EntityType="Self.admForvantadfil" />
           <EntitySet Name="admForvantadleverans" EntityType="Self.admForvantadleveran" />
           <EntitySet Name="admInformations" EntityType="Self.admInformation" />
@@ -685,14 +630,6 @@
             <End Role="admDelregister" EntitySet="admDelregisters" />
             <End Role="admUppgiftsskyldighet" EntitySet="admUppgiftsskyldighets" />
           </AssociationSet>
-          <AssociationSet Name="FK_admFAQ_admFAQKategori" Association="Self.FK_admFAQ_admFAQKategori">
-            <End Role="admFAQKategori" EntitySet="admFAQKategoris" />
-            <End Role="admFAQ" EntitySet="admFAQs" />
-          </AssociationSet>
-          <AssociationSet Name="FK_admFAQ_admRegister" Association="Self.FK_admFAQ_admRegister">
-            <End Role="admRegister" EntitySet="admRegisters" />
-            <End Role="admFAQ" EntitySet="admFAQs" />
-          </AssociationSet>
           <AssociationSet Name="FK_admUppgiftsskyldighet_Organisation" Association="Self.FK_admUppgiftsskyldighet_Organisation">
             <End Role="Organisation" EntitySet="Organisations" />
             <End Role="admUppgiftsskyldighet" EntitySet="admUppgiftsskyldighets" />
@@ -705,7 +642,69 @@
             <End Role="Organisation" EntitySet="Organisations" />
             <End Role="Organisationsenhet" EntitySet="Organisationsenhets" />
           </AssociationSet>
+          <EntitySet Name="admFAQs" EntityType="DB11Model.admFAQ" />
+          <EntitySet Name="admFAQKategoris" EntityType="DB11Model.admFAQKategori" />
+          <AssociationSet Name="FK_admFAQ_admFAQKategori" Association="DB11Model.FK_admFAQ_admFAQKategori">
+            <End Role="admFAQKategori" EntitySet="admFAQKategoris" />
+            <End Role="admFAQ" EntitySet="admFAQs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_admFAQ_admRegister" Association="DB11Model.FK_admFAQ_admRegister">
+            <End Role="admRegister" EntitySet="admRegisters" />
+            <End Role="admFAQ" EntitySet="admFAQs" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="admFAQ">
+          <Key>
+            <PropertyRef Name="faqid" />
+          </Key>
+          <Property Name="faqid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="registerid" Type="Int32" />
+          <Property Name="faqkategoriid" Type="Int32" />
+          <Property Name="fraga" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="svar" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="skapaddatum" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="skapadav" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="andraddatum" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="andradav" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="admFAQKategori" Relationship="DB11Model.FK_admFAQ_admFAQKategori" FromRole="admFAQ" ToRole="admFAQKategori" />
+          <NavigationProperty Name="admRegister" Relationship="DB11Model.FK_admFAQ_admRegister" FromRole="admFAQ" ToRole="admRegister" />
+        </EntityType>
+        <EntityType Name="admFAQKategori">
+          <Key>
+            <PropertyRef Name="faqkategoriid" />
+          </Key>
+          <Property Name="faqkategoriid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="kategori" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="skapaddatum" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="skapadav" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="andraddatum" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="andradav" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="admFAQs" Relationship="DB11Model.FK_admFAQ_admFAQKategori" FromRole="admFAQKategori" ToRole="admFAQ" />
+        </EntityType>
+        <Association Name="FK_admFAQ_admFAQKategori">
+          <End Type="DB11Model.admFAQKategori" Role="admFAQKategori" Multiplicity="0..1" />
+          <End Type="DB11Model.admFAQ" Role="admFAQ" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="admFAQKategori">
+              <PropertyRef Name="faqkategoriid" />
+            </Principal>
+            <Dependent Role="admFAQ">
+              <PropertyRef Name="faqkategoriid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_admFAQ_admRegister">
+          <End Type="DB11Model.admRegister" Role="admRegister" Multiplicity="0..1" />
+          <End Type="DB11Model.admFAQ" Role="admFAQ" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="admRegister">
+              <PropertyRef Name="registerid" />
+            </Principal>
+            <Dependent Role="admFAQ">
+              <PropertyRef Name="registerid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -722,33 +721,6 @@
                 <ScalarProperty Name="kortnamn" ColumnName="kortnamn" />
                 <ScalarProperty Name="inrapporteringsportal" ColumnName="inrapporteringsportal" />
                 <ScalarProperty Name="slussmapp" ColumnName="slussmapp" />
-                <ScalarProperty Name="skapaddatum" ColumnName="skapaddatum" />
-                <ScalarProperty Name="skapadav" ColumnName="skapadav" />
-                <ScalarProperty Name="andraddatum" ColumnName="andraddatum" />
-                <ScalarProperty Name="andradav" ColumnName="andradav" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="admFAQs">
-            <EntityTypeMapping TypeName="DB11Model.admFAQ">
-              <MappingFragment StoreEntitySet="admFAQ">
-                <ScalarProperty Name="faqid" ColumnName="faqid" />
-                <ScalarProperty Name="registerid" ColumnName="registerid" />
-                <ScalarProperty Name="faqkatergoriid" ColumnName="faqkatergoriid" />
-                <ScalarProperty Name="fraga" ColumnName="fraga" />
-                <ScalarProperty Name="svar" ColumnName="svar" />
-                <ScalarProperty Name="skapaddatum" ColumnName="skapaddatum" />
-                <ScalarProperty Name="skapadav" ColumnName="skapadav" />
-                <ScalarProperty Name="andraddatum" ColumnName="andraddatum" />
-                <ScalarProperty Name="andradav" ColumnName="andradav" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="admFAQKategoris">
-            <EntityTypeMapping TypeName="DB11Model.admFAQKategori">
-              <MappingFragment StoreEntitySet="admFAQKategori">
-                <ScalarProperty Name="faqkatergoriid" ColumnName="faqkatergoriid" />
-                <ScalarProperty Name="kategori" ColumnName="kategori" />
                 <ScalarProperty Name="skapaddatum" ColumnName="skapaddatum" />
                 <ScalarProperty Name="skapadav" ColumnName="skapadav" />
                 <ScalarProperty Name="andraddatum" ColumnName="andraddatum" />
@@ -919,6 +891,33 @@
                 <ScalarProperty Name="skapadav" ColumnName="skapadav" />
                 <ScalarProperty Name="andraddatum" ColumnName="andraddatum" />
                 <ScalarProperty Name="andradav" ColumnName="andradav" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="admFAQs">
+            <EntityTypeMapping TypeName="DB11Model.admFAQ">
+              <MappingFragment StoreEntitySet="admFAQ">
+                <ScalarProperty Name="andradav" ColumnName="andradav" />
+                <ScalarProperty Name="andraddatum" ColumnName="andraddatum" />
+                <ScalarProperty Name="skapadav" ColumnName="skapadav" />
+                <ScalarProperty Name="skapaddatum" ColumnName="skapaddatum" />
+                <ScalarProperty Name="svar" ColumnName="svar" />
+                <ScalarProperty Name="fraga" ColumnName="fraga" />
+                <ScalarProperty Name="faqkategoriid" ColumnName="faqkategoriid" />
+                <ScalarProperty Name="registerid" ColumnName="registerid" />
+                <ScalarProperty Name="faqid" ColumnName="faqid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="admFAQKategoris">
+            <EntityTypeMapping TypeName="DB11Model.admFAQKategori">
+              <MappingFragment StoreEntitySet="admFAQKategori">
+                <ScalarProperty Name="andradav" ColumnName="andradav" />
+                <ScalarProperty Name="andraddatum" ColumnName="andraddatum" />
+                <ScalarProperty Name="skapadav" ColumnName="skapadav" />
+                <ScalarProperty Name="skapaddatum" ColumnName="skapaddatum" />
+                <ScalarProperty Name="kategori" ColumnName="kategori" />
+                <ScalarProperty Name="faqkategoriid" ColumnName="faqkategoriid" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

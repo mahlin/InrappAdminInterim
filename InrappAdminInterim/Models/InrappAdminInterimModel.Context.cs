@@ -26,8 +26,6 @@ namespace InrappAdminInterim.Models
         }
     
         public virtual DbSet<admDelregister> admDelregisters { get; set; }
-        public virtual DbSet<admFAQ> admFAQs { get; set; }
-        public virtual DbSet<admFAQKategori> admFAQKategoris { get; set; }
         public virtual DbSet<admForvantadfil> admForvantadfils { get; set; }
         public virtual DbSet<admForvantadleveran> admForvantadleverans { get; set; }
         public virtual DbSet<admInformation> admInformations { get; set; }
@@ -37,5 +35,7 @@ namespace InrappAdminInterim.Models
         public virtual DbSet<Kontaktperson> Kontaktpersons { get; set; }
         public virtual DbSet<Organisation> Organisations { get; set; }
         public virtual DbSet<Organisationsenhet> Organisationsenhets { get; set; }
+        public virtual DbSet<admFAQ> admFAQs { get; set; }
+        public virtual DbSet<admFAQKategori> admFAQKategoris { get; set; }
     }
 }

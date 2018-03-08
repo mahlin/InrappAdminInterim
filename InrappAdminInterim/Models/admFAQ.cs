@@ -16,7 +16,7 @@ namespace InrappAdminInterim.Models
     {
         public int faqid { get; set; }
         public Nullable<int> registerid { get; set; }
-        public Nullable<int> faqkatergoriid { get; set; }
+        public Nullable<int> faqkategoriid { get; set; }
         public string fraga { get; set; }
         public string svar { get; set; }
         public System.DateTime skapaddatum { get; set; }

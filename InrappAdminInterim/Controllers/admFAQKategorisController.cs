@@ -46,7 +46,7 @@ namespace InrappAdminInterim.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "faqkatergoriid,kategori,skapaddatum,skapadav,andraddatum,andradav")] admFAQKategori admFAQKategori)
+        public ActionResult Create([Bind(Include = "faqkategoriid,kategori,skapaddatum,skapadav,andraddatum,andradav")] admFAQKategori admFAQKategori)
         {
             if (ModelState.IsValid)
             {
@@ -78,7 +78,7 @@ namespace InrappAdminInterim.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "faqkatergoriid,kategori,skapaddatum,skapadav,andraddatum,andradav")] admFAQKategori admFAQKategori)
+        public ActionResult Edit([Bind(Include = "faqkategoriid,kategori,skapaddatum,skapadav,andraddatum,andradav")] admFAQKategori admFAQKategori)
         {
             if (ModelState.IsValid)
             {

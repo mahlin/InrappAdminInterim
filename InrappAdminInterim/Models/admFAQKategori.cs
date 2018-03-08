@@ -20,7 +20,7 @@ namespace InrappAdminInterim.Models
             this.admFAQs = new HashSet<admFAQ>();
         }
     
-        public int faqkatergoriid { get; set; }
+        public int faqkategoriid { get; set; }
         public string kategori { get; set; }
         public System.DateTime skapaddatum { get; set; }
         public string skapadav { get; set; }

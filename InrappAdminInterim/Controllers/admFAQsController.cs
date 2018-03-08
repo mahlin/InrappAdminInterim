@@ -42,7 +42,7 @@ namespace InrappAdminInterim.Controllers
             var listItems = new List<SelectListItem>();
             listItems.Add(new SelectListItem() { Value = null, Text = "Inget register" });
             listItems.AddRange(db.admRegisters.Select(u => new SelectListItem { Value = u.registerid.ToString(), Text = u.registernamn }).ToList());
-            ViewBag.faqkatergoriid = new SelectList(db.admFAQKategoris, "faqkatergoriid", "kategori");
+            ViewBag.faqkategoriid = new SelectList(db.admFAQKategoris, "faqkategoriid", "kategori");
             //ViewBag.registerid = new SelectList(db.admRegisters, "registerid", "registernamn");
             ViewBag.registerId = new SelectList(listItems, "Value", "Text");
             return View();
@@ -53,7 +53,7 @@ namespace InrappAdminInterim.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "faqid,registerid,faqkatergoriid,fraga,svar,skapaddatum,skapadav,andraddatum,andradav")] admFAQ admFAQ)
+        public ActionResult Create([Bind(Include = "faqid,registerid,faqkategoriid,fraga,svar,skapaddatum,skapadav,andraddatum,andradav")] admFAQ admFAQ)
         {
             if (ModelState.IsValid)
             {
@@ -62,12 +62,12 @@ namespace InrappAdminInterim.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.faqkatergoriid = new SelectList(db.admFAQKategoris, "faqkatergoriid", "kategori", admFAQ.faqkatergoriid);
+            ViewBag.faqkategoriid = new SelectList(db.admFAQKategoris, "faqkategoriid", "kategori", admFAQ.faqkategoriid);
             //ViewBag.registerid = new SelectList(db.admRegisters, "registerid", "registernamn", admFAQ.registerid);
             var listItems = new List<SelectListItem>();
             listItems.Add(new SelectListItem() { Value = null, Text = "Inget register" });
             listItems.AddRange(db.admRegisters.Select(u => new SelectListItem { Value = u.registerid.ToString(), Text = u.registernamn }).ToList());
-            ViewBag.faqkatergoriid = new SelectList(db.admFAQKategoris, "faqkatergoriid", "kategori");
+            ViewBag.faqkategoriid = new SelectList(db.admFAQKategoris, "faqkategoriid", "kategori");
             //ViewBag.registerid = new SelectList(db.admRegisters, "registerid", "registernamn");
             ViewBag.registerId = new SelectList(listItems, "Value", "Text");
 
@@ -86,11 +86,11 @@ namespace InrappAdminInterim.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.faqkatergoriid = new SelectList(db.admFAQKategoris, "faqkatergoriid", "kategori", admFAQ.faqkatergoriid);
+            ViewBag.faqkategoriid = new SelectList(db.admFAQKategoris, "faqkategoriid", "kategori", admFAQ.faqkategoriid);
             var listItems = new List<SelectListItem>();
             listItems.Add(new SelectListItem() { Value = null, Text = "Inget register" });
             listItems.AddRange(db.admRegisters.Select(u => new SelectListItem { Value = u.registerid.ToString(), Text = u.registernamn }).ToList());
-            ViewBag.faqkatergoriid = new SelectList(db.admFAQKategoris, "faqkatergoriid", "kategori");
+            ViewBag.faqkategoriid = new SelectList(db.admFAQKategoris, "faqkategoriid", "kategori");
             //ViewBag.registerid = new SelectList(db.admRegisters, "registerid", "registernamn");
             ViewBag.registerId = new SelectList(listItems, "Value", "Text");
 
@@ -103,7 +103,7 @@ namespace InrappAdminInterim.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "faqid,registerid,faqkatergoriid,fraga,svar,skapaddatum,skapadav,andraddatum,andradav")] admFAQ admFAQ)
+        public ActionResult Edit([Bind(Include = "faqid,registerid,faqkategoriid,fraga,svar,skapaddatum,skapadav,andraddatum,andradav")] admFAQ admFAQ)
         {
             if (ModelState.IsValid)
             {
@@ -111,12 +111,12 @@ namespace InrappAdminInterim.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.faqkatergoriid = new SelectList(db.admFAQKategoris, "faqkatergoriid", "kategori", admFAQ.faqkatergoriid);
+            ViewBag.faqkategoriid = new SelectList(db.admFAQKategoris, "faqkategoriid", "kategori", admFAQ.faqkategoriid);
             //ViewBag.registerid = new SelectList(db.admRegisters, "registerid", "registernamn", admFAQ.registerid);
             var listItems = new List<SelectListItem>();
             listItems.Add(new SelectListItem() { Value = null, Text = "Inget register" });
             listItems.AddRange(db.admRegisters.Select(u => new SelectListItem { Value = u.registerid.ToString(), Text = u.registernamn }).ToList());
-            ViewBag.faqkatergoriid = new SelectList(db.admFAQKategoris, "faqkatergoriid", "kategori");
+            ViewBag.faqkategoriid = new SelectList(db.admFAQKategoris, "faqkategoriid", "kategori");
             //ViewBag.registerid = new SelectList(db.admRegisters, "registerid", "registernamn");
             ViewBag.registerId = new SelectList(listItems, "Value", "Text");
 
